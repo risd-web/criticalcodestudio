@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>CSS Changes Demo</title>
+</head>
+<body>
+  <main>
+    
+    <section id="text">
+      <p id="sample">
+       Appendix D. Default style sheet for HTML 4. The CSS Working Group is also developing CSS level 2 revision 2 (CSS 2.2). This appendix is informative, not normative. This style sheet describes the typical formatting of all HTML 4 ([HTML4]) elements based on extensive research into current UA practice. Developers are encouraged to use it as a default style sheet in their implementations. The full presentation of some HTML elements cannot be expressed in CSS 2.1, including replaced elements ("img", "object"), scripting elements ("script", "applet"), form control elements, and frame elements. For other elements, the legacy presentation can be described in CSS but the solution removes the element. For example, the FONT element can be replaced by attaching CSS declarations to other elements (e.g., DIV).
+      </p>
+      <button id="inspect">
+        Get default styles
+      </button>
+    </section>
+
+    
+    <section id="editor">
+      <div class="option" id="options-slant" data-slant="">
+        <div class="slant-option" id="italic">
+         <em>italic</em>
+        </div>
+        <div class="slant-option" id="roman">
+         roman
+        </div>
+      </div>
+
+
+      <div class="option" id="options-size">
+        Size
+        <div class="slider">
+          <input class="slider-input" id="slider-size" type="range" name="points" min="8" max="300">
+          <div class="slider-indicator" id="applied-size">
+          </div>
+        </div>
+      </div>
+
+      <div class="option" id="options-leading">
+        Leading
+        <div class="slider">
+          <input class="slider-input" id="slider-leading" type="range" name="points" min="0.8" max="2" step="0.05">
+          <div class="slider-indicator" id="applied-leading">
+          </div>
+        </div>
+      </div>
+
+      <div class="option" id="options-tracking">
+        Tracking
+        <div class="slider">
+          <input class="slider-input" id="slider-tracking" type="range" name="px" min="-10" max="10" step="1">
+          <div class="slider-indicator" id="applied-tracking">
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</body>
+</html>

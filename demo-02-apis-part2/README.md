@@ -285,3 +285,11 @@ Navigate back to the Dashboard in your browser.
 
 You’re all set! Your bot should now be tweeting away.
 
+## Documentation
+
+For further info on what you can do with the Twitter API, go to the 
+[Twit](https://github.com/ttezel/twit/) and [Node Twitter Bot](https://github.com/nkirby/node-twitterbot/wiki/TwitterBot) documentation. 
+
+See also: a nice tutorial + implementation with Google Spreadsheets by [Allison Parish](http://air.decontextualize.com/twitterbot/)
+
+

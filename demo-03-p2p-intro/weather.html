@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weather Api</title>
+    <link rel="stylesheet" href="/styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      body{
+        margin: 0;
+        padding: 0;
+      }
+      #background{
+        width: 100vw;
+        height: 100vh;
+      }
+      #inputField {
+        padding-top: 30px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main  id="background">
+      <div id="inputField">
+      <input id="city" value="Providence"> <button id="go">Go</button>
+    </main>
+  </body>
+  <script>
+    var weather;
+
+    var api = "https://api.openweathermap.org/data/2.5/weather?q=";
+    var apiKey = "&APPID=001b0f58045147663b1ea518d34d88b4";
+    var units = "&units=metric";
+
+    var input;
+
+    document.getElementById('go').onclick = function(e){
+      let  input = document.getElementById('city').value;
+      // console.log(input);
+      weatherAPI(input);
+    }
+
+    function weatherAPI(input) {
+      let url = api + input + apiKey + units;
+      fetch(url)
+      .then(result => result.json())
+      .then((data) => {
+         let weather  =  data;
+         drawBackground(weather);
+      })
+      .catch(err => { throw err });
+    }
+
+    function drawBackground(weather) {
+      if (weather) {
+        let temp = weather.main.temp;
+        let humidity = weather.main.humidity;
+        let pressure = weather.main.pressure;
+        let color = 'rgb('+ temp * 2  +','+ humidity +','+ pressure * 0.1 +')';
+        document.getElementById('background').style.background = color; 
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>P5 Api</title>
+    <link rel="stylesheet" href="/styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script  src="p5/p5.min.js"></script>
+    <style type="text/css">
+      body{
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    
+  </body>
+  <script>   
+    var speed = 5;
+    function setup() {
+        createCanvas(windowWidth, windowHeight); 
+        frameRate(15);
+        background(255,255,0);
+    } 
+       
+    function windowResized() {
+      createCanvas(windowWidth, windowHeight); 
+    } 
+
+
+    function draw() {
+      var x = 0;
+      var y = windowHeight * 0.5;
+      var diameter = min(width, height) * 0.1;
+
+
+      fill(random(255),random(255),random(255));
+      noStroke();
+      circle(mouseX, mouseY, 50);
+    } 
+  </script>
+</html>

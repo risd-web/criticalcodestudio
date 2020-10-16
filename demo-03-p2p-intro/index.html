@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello Peers!</title>
+    <link rel="stylesheet" href="/styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+
+  <body>
+    <section id="peerinfo">
+      This site is currently viewed by <span id="peercount"></span> peers.
+    </section>
+    <section id="content">  
+
+
+    </section>
+    
+     <script>
+       //  setup peerEvents listener to watch
+       //  peers joining and leaving
+
+      var peers = new Set();
+      setup();
+      async function setup () {
+        var peerEvents = beaker.peersockets.watch()
+        peerEvents.addEventListener('join', e => {
+          console.log('join', e);
+          peers.add(e.peerId);
+          updatePeerList(peers);    
+        })
+        peerEvents.addEventListener('leave', e => {
+          console.log('leave', e);
+          updatePeerList(peers);
+        })
+      }
+
+      function updatePeerList(list){
+        //  updates the peer count span
+        document.getElementById('peercount').innerText = list.size;
+      }
+
+      (function() {
+
+        //  load markdown file to render content
+        beaker.hyperdrive.readFile('/intro.md').then(function(result) {
+            let markdownText = result;// here you can use the result of promiseB
+            let html = beaker.markdown.toHTML(markdownText);
+            document.getElementById('content').innerHTML  = html;
+        });
+
+      })();
+
+     </script>
+  </body>
+</html>

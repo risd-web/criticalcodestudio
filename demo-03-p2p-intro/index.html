@@ -45,7 +45,7 @@
       (function() {
 
         //  load markdown file to render content
-        beaker.hyperdrive.readFile('/intro.md').then(function(result) {
+        beaker.hyperdrive.readFile('/README.md').then(function(result) {
             let markdownText = result;// here you can use the result of promiseB
             let html = beaker.markdown.toHTML(markdownText);
             document.getElementById('content').innerHTML  = html;

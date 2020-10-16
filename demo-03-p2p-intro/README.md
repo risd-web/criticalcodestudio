@@ -39,7 +39,7 @@ You might also have a `.datignore` file. This works the  same wa as `.gitignore`
 
 ## Using Beaker APIs
 
-Now for the fun part: you can tap into [Beaker browser’s APIs](https://docs.beakerbrowser.com/#apis) to take advantage of this infrastructure. You can look  at the source of this page to check out some examples.
+Now for the fun part: you can tap into [Beaker browser’s APIs](https://docs.beakerbrowser.com/#apis) to take advantage of this infrastructure. You can look  at the source of this page (Drive  -> Explore Files) to check out  some examples  of how these could be used.
 
 -  This website itself is a demo of the `beaker.markdown` api: it reads the markdown  content of `intro.md` file and renders it as html.
 - The top peer count info  uses the `beaker.peersockets` API to track the number of peers. 

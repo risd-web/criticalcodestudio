@@ -1,5 +1,8 @@
 # Twitter Bot Tutorial
 
+> Demo results at: https://twitter.com/HowtoSpeakBird 
+> This bot tweets a bird sound in a randomly selected language, every day at 8:00am. Source: [Wikipedia](https://en.wikipedia.org/wiki/Cross-linguistic_onomatopoeias#Wild_birds)
+
 Deploying a twitter bot involves a couple components. Unlike the demo from last week, which involved just pulling information via an API, we’ll be interacting with the platform itself with the Twitter API. 
 
 You’ll need:

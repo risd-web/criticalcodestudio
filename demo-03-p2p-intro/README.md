@@ -4,7 +4,7 @@ Hi! I’m a “Hyperdrive” at [hyper://e3039d870239c71d5f1a4a6bd4e87e5078937a6
 
 ## Introduction
 
-In 2013, the **dat protocol**(`dat://`) was launched as an alternative protocol to the standard Hypertext Transfer Protocol (`http://` or `https://`). These protocols determine _how_ a website is accessed. The [dat project](https://docs.datproject.org/) sought to create a more decentralized approach to website access through direct computer-to-computer, or peer-to-peer connections. (Think bittorrent, Limewire.) Read more about [how dat works](https://datprotocol.github.io/how-dat-works/#introduction).
+In 2013, the **dat protocol**(`dat://`) was launched as an alternative protocol to the standard Hypertext Transfer Protocol (`http://` or `https://`). These protocols determine _how_ a website is accessed. The [dat project](https://docs.datproject.org/) sought to create a more decentralized approach to website access through direct computer-to-computer, or peer-to-peer connections. (Think BitTorrent, Limewire.) Read more about [how dat works](https://datprotocol.github.io/how-dat-works/#introduction).
 
 In May of 2020, **dat** was renamed to **hypercore**(`hyper://`), in order to consolidate efforts to maintain and develop the technology. [Read more about this transition here](https://blog.datproject.org/2020/05/15/dat-protocol-renamed-hypercore-protocol/). You can find documentation of [the hypercore protocol here](https://hypercore-protocol.org/).
 
@@ -13,7 +13,7 @@ In May of 2020, **dat** was renamed to **hypercore**(`hyper://`), in order to co
 
 ## Making P2P websites
 
-You can use the beaker browser for managing your site files by going to  your [beaker://library/](beaker://library/) on your browser (think Github Desktop) or use the Terminal. To use the dat CLI
+You can use the beaker browser for managing your site files by going to  your [beaker://library/](beaker://library/) on your browser (think Github Desktop) or use the Terminal. To use the [CLI](https://docs.beakerbrowser.com/advanced/webterm/), go to Developer > Toggle Terminal. 
 
 - Here is a demo the [Weather API](weather.html) from Lai’s example.
 - Here is a standard p5 demo [p5 sketch](sketch.html) from a [Code Lab demo](https://github.com/RISD-Code-Lab/cl-spring2020/tree/master/session-07).

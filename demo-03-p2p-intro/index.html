@@ -25,16 +25,19 @@
       var peers = new Set();
       setup();
       async function setup () {
-        var peerEvents = beaker.peersockets.watch()
+        var peerEvents = beaker.peersockets.watch();
+        
         peerEvents.addEventListener('join', e => {
           console.log('join', e);
           peers.add(e.peerId);
           updatePeerList(peers);    
-        })
+        });
+
         peerEvents.addEventListener('leave', e => {
           console.log('leave', e);
+          peers.delete(e.peerId);
           updatePeerList(peers);
-        })
+        });
       }
 
       function updatePeerList(list){

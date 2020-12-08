@@ -75,8 +75,13 @@ $(function(){
 	    
 	    let text = new TextDecoder().decode(e.message);
 
-	    parseMessage(e.peerId, text);
-
+	    if(text.includes('self')){
+	    	// don’t react to what your peer said 
+	    }else{
+	    	// otherwise, parse the message in the same way
+	    	parseMessage(e.peerId, text);
+	    }
+	    
 	    
 	    // get peer name based on their id
 	    let peerName = yourPeers[e.peerId]['name']; 
@@ -165,6 +170,12 @@ $(function(){
 		}
 
 	}
+
+	$('#pane').click(function(){
+		var pane = await beaker.panes.create('https://beakerbrowser.com', {attach: true})
+		console.log(pane.id) // some number
+		console.log(pane.url) // the current address of the pane
+	});
 	
 
 

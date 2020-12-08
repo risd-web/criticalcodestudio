@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Panes Demo</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      button {
+        display: block;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>beaker.panes API Demo</h1>
+    <button id="create">Create Attached Pane</button>
+    <button id="nav1" class="requires-attached" disabled>Navigate pane to beaker.dev</button>
+    <button id="nav2" class="requires-attached" disabled>Navigate pane to example.com</button>
+    <button id="exec" class="requires-attached" disabled>Execute JS in pane</button>
+    <button id="inject" class="requires-attached" disabled>Inject CSS in pane</button>
+    <button id="close" class="requires-attached" disabled>Close Pane</button>
+
+    <script type="module">
+      function setDisabled (b) {
+        if (b) Array.from(document.body.querySelectorAll('.requires-attached'), el => el.setAttribute('disabled', 'disabled'))
+        else Array.from(document.body.querySelectorAll('.requires-attached'), el => el.removeAttribute('disabled'))
+      }
+
+      setDisabled(true)
+      beaker.panes.setAttachable()
+      beaker.panes.attachToLastActivePane().then(res => {
+        if (res) setDisabled(false)
+      })
+      const on = (el, evt, fn) => el.addEventListener(evt, fn)
+
+      console.log(create, close); 
+      console.log(beaker.panes)
+
+      on(create, 'click', e => beaker.panes.create('https://example.com', {attach: true}))
+      on(nav1, 'click', e => beaker.panes.navigate(beaker.panes.getAttachedPane().id, 'https://beaker.dev'))
+      on(nav2, 'click', e => beaker.panes.navigate(beaker.panes.getAttachedPane().id, 'https://example.com'))
+      on(exec, 'click', e => beaker.panes.executeJavaScript(beaker.panes.getAttachedPane().id, 'alert("hello from " + location.toString())'))
+      on(inject, 'click', e => beaker.panes.injectCss(beaker.panes.getAttachedPane().id, 'body { color: red !important; }'))
+
+      on(document.getElementById('close'), 'click', e => beaker.panes.executeJavaScript(beaker.panes.getAttachedPane().id, 'window.close()' ))
+
+      beaker.panes.addEventListener('pane-attached', e => {
+        console.log('pane attached')
+        setDisabled(false)
+      })
+      beaker.panes.addEventListener('pane-detached', e => {
+        console.log('pane detached')
+        setDisabled(true)
+      })
+      beaker.panes.addEventListener('pane-navigated', e => {
+        console.log('pane has changed url', e.detail.url)
+      })
+      // beaker.panes.addEventListener('close', e => {
+      //   console.log('pane close')
+      //   setDisabled(true)
+      // })
+    </script>
+  </body>
+</html>
